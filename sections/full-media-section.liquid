@@ -1,0 +1,216 @@
+<section class="full-media-section">
+  <div class="full-media-section__container">
+    <div class="full-media-section__media-wrapper">
+      <!-- Media Content -->
+      {% if section.settings.media_type == 'image' and section.settings.image %}
+        <div class="full-media-section__image">
+          <img 
+            src="{{ section.settings.image | image_url: width: 1920 }}"
+            alt="{{ section.settings.heading | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+        </div>
+      {% elsif section.settings.media_type == 'video' and section.settings.video_url %}
+        <div class="full-media-section__video">
+          <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            poster=""
+          >
+            <source src="{{ section.settings.video_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      {% endif %}
+
+      <!-- Overlay -->
+      <div class="full-media-section__overlay"></div>
+
+      <!-- Content -->
+      <div class="full-media-section__content">
+        {% if section.settings.heading != blank %}
+          <h2 class="full-media-section__heading">{{ section.settings.heading | escape }}</h2>
+        {% endif %}
+        
+        {% if section.settings.button_label != blank and section.settings.button_url != blank %}
+          <a href="{{ section.settings.button_url }}" class="button full-media-section__button">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.full-media-section {
+  margin-top: 2em;
+}
+
+.full-media-section__container {
+  max-width: var(--page-max-width, 1200px);
+  margin: 0 auto;
+}
+
+.full-media-section__media-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EDEAE4;
+}
+
+.full-media-section__image,
+.full-media-section__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.full-media-section__image img,
+.full-media-section__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.full-media-section__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.full-media-section__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 1em;
+  width: 100%;
+  color: #EDEAE4;
+}
+
+.full-media-section__heading {
+  color: #EDEAE4 !important;
+  margin: 0 0 1.5em 0;
+  font-family: var(--font-header) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  text-transform: uppercase !important;
+}
+
+.full-media-section__button {
+  background-color: #EDEAE4;
+  color: #171717;
+  border: none;
+  padding: 1em 2em;
+  min-width: 300px;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-family: var(--font-button) !important;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+.full-media-section__button:hover {
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  .full-media-section {
+    margin: 20px 0;
+  }
+  
+  .full-media-section__media-wrapper {
+    min-height: 300px;
+  }
+  
+  .full-media-section__heading {
+    font-size: 1.5em;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Full Media Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "Recommended size: 1920x800px"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL",
+      "info": "Enter the direct URL to your video file (MP4 format recommended)"
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your Heading Here"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "info": "Where should the button link to?"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Full Media Section"
+    }
+  ]
+}
+{% endschema %}
