@@ -691,13 +691,19 @@ media-gallery .product-media-container, .cart-items__media-image {
   font-size: var(--cart-font-size--sm) !important;
 }
 
-.button, .button-secondary {
+.hero__container .button, .hero__container .button-secondary {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
   min-width: 300px;
+}
+
+@media screen and (width < 750px) {
+  .hero__container .button, .hero__container .button-secondary {
+    min-width: 100%;
+  }
 }
 
 .product-badges__badge--rectangle {
