@@ -6,21 +6,24 @@
         "heading": {
           "type": "text",
           "name": "Title",
+          "disabled": true,
           "settings": {
             "text": "<h1>{{ closest.page.title }}<\/h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "h1",
             "font": "var(--font-primary--family)",
             "font_size": "",
-            "color": "",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
+            "color": "",
+            "foreground_layer": false,
             "background": false,
             "background_color": "#00000026",
+            "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -30,6 +33,7 @@
         },
         "page-content": {
           "type": "page-content",
+          "disabled": true,
           "settings": {},
           "blocks": {}
         }
@@ -38,6 +42,7 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -45,9 +50,34 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "v2_feature_text_aHrcCd": {
+      "type": "v2-feature-text",
+      "name": "Feature Text",
+      "settings": {
+        "feature_heading": "OFF PISTE WAS BORN IN BRECKENRIDGE IN THE DEAD OF WINTER—FUELED BY A LOVE FOR THE MOUNTAINS AND A NEED FOR GEAR THAT MOVES AS HARD AS YOU DO.",
+        "indent": false,
+        "right_text": false,
+        "justify_text": false,
+        "small_text": false,
+        "jumbo_text": false
+      }
+    },
+    "full_media_section_GbgfUa": {
+      "type": "full-media-section",
+      "name": "Full Media Section",
+      "settings": {
+        "media_type": "video",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/86e71047138f466fab02cdb35ee0c7b3.mp4",
+        "heading": "",
+        "button_label": "Learn More",
+        "button_url": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "v2_feature_text_aHrcCd",
+    "full_media_section_GbgfUa"
   ]
 }
