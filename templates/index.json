@@ -438,6 +438,7 @@
     },
     "about_section_nAHeCe": {
       "type": "about-section",
+      "disabled": true,
       "name": "About Section",
       "settings": {
         "heading": "What started as a West Hollywood gas station became an underground icon—one hat at a time. No billboards. No branding teams. Just local legend, stitched and sold behind pump three.",
@@ -448,51 +449,28 @@
         "full_width": true
       }
     },
-    "v2_testimonials_gYMtty": {
-      "type": "v2-testimonials",
-      "blocks": {
-        "testimonial_PPRpXV": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "",
-            "instagram_handle": "zachlanebryan",
-            "size": "medium"
-          }
-        },
-        "testimonial_NqrYAa": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "",
-            "instagram_handle": "saquon",
-            "size": "medium"
-          }
-        },
-        "testimonial_q6z4Dt": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "",
-            "instagram_handle": "brooklynpeltzbeckham",
-            "size": "medium"
-          }
-        },
-        "testimonial_bc37z7": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "",
-            "instagram_handle": "tonyhawk",
-            "size": "medium"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_PPRpXV",
-        "testimonial_NqrYAa",
-        "testimonial_q6z4Dt",
-        "testimonial_bc37z7"
-      ],
-      "name": "Testimonials",
+    "split_media_section_QEyRyp": {
+      "type": "split-media-section",
+      "name": "Split Media Section",
       "settings": {
-        "title": "As Seen on #SunsetOil"
+        "heading": "Meet the Tech",
+        "description": "<p>Seamless audio in your headband. Intuitive control at your fingertips. No distractions—just instinct, flow, and movement.<\/p>",
+        "media_type": "image",
+        "image": "shopify:\/\/shop_images\/grid-img_c96fe272-cf39-4c4e-8be5-72c0818c4838.png",
+        "video_url": "",
+        "button_label": "Learn More",
+        "button_url": "shopify:\/\/pages\/our-technology"
+      }
+    },
+    "full_media_section_rpp3XK": {
+      "type": "full-media-section",
+      "name": "Full Media Section",
+      "settings": {
+        "media_type": "video",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/86e71047138f466fab02cdb35ee0c7b3.mp4",
+        "heading": "Audio gear that disappears into your ride—seamless, rugged, built for motion.",
+        "button_label": "ABOUT US",
+        "button_url": "shopify:\/\/pages\/about-us"
       }
     }
   },
@@ -501,6 +479,7 @@
     "v2_feature_text_PpnfRr",
     "product_list_qU3bEB",
     "about_section_nAHeCe",
-    "v2_testimonials_gYMtty"
+    "split_media_section_QEyRyp",
+    "full_media_section_rpp3XK"
   ]
 }

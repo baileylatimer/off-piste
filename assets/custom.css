@@ -828,3 +828,8 @@ footer.section-wrapper .section {
     margin-top: -200px;
   }
 }
+
+
+#ultimateTrustBadgeswidgetDiv {
+  display: none !important
+}
