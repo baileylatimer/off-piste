@@ -1,0 +1,280 @@
+<section class="three-column-media">
+  <div class="three-column-media__container">
+    <div class="three-column-media__grid">
+      {% for block in section.blocks %}
+        <div class="three-column-media__card" {{ block.shopify_attributes }}>
+          <div class="three-column-media__media-wrapper">
+            <!-- Media Content -->
+            {% if block.settings.media_type == 'image' and block.settings.image %}
+              <div class="three-column-media__image">
+                <img 
+                  src="{{ block.settings.image | image_url: width: 800 }}"
+                  alt="{{ block.settings.heading | escape }}"
+                  loading="lazy"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                >
+              </div>
+            {% elsif block.settings.media_type == 'video' and block.settings.video_url %}
+              <div class="three-column-media__video">
+                <video 
+                  autoplay 
+                  muted 
+                  loop 
+                  playsinline
+                >
+                  <source src="{{ block.settings.video_url }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            {% endif %}
+
+            <!-- Overlay -->
+            <div class="three-column-media__overlay"></div>
+
+            <!-- Content -->
+            <div class="three-column-media__content">
+              {% if block.settings.heading != blank %}
+                <h4 class="three-column-media__heading">{{ block.settings.heading | escape }}</h4>
+              {% endif %}
+              
+              {% if block.settings.description != blank %}
+                <p class="three-column-media__description">{{ block.settings.description | escape }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.three-column-media {
+margin-top: 8px;
+}
+
+.three-column-media__container {
+  margin: 0 auto;
+}
+
+.three-column-media__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.three-column-media__card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 640px;
+}
+
+.three-column-media__media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  background-color: #EDEAE4;
+}
+
+.three-column-media__image,
+.three-column-media__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.three-column-media__image img,
+.three-column-media__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.three-column-media__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 2;
+}
+
+.three-column-media__content {
+  position: relative;
+  z-index: 3;
+  padding: 2em;
+  width: 100%;
+  color: #EDEAE4;
+}
+
+.three-column-media__heading {
+  color: #EDEAE4 !important;
+  margin: 0 0 0.5em 0;
+  font-family: var(--font-header) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  text-transform: uppercase !important;
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+.three-column-media__description {
+  color: #EDEAE4 !important;
+  margin: 0;
+  font-family: var(--font-body) !important;
+  text-transform: uppercase !important;
+  line-height: 1.4;
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 749px) {
+  .three-column-media {
+    margin: 20px 0;
+  }
+  
+  .three-column-media__grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .three-column-media__card {
+    height: 440px;
+  }
+  
+  .three-column-media__content {
+    padding: 1.5em;
+  }
+  
+  .three-column-media__heading {
+    font-size: 1.3em;
+  }
+  
+  .three-column-media__description {
+    font-size: 0.8em;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 750px) and (max-width: 1023px) {
+  .three-column-media__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .three-column-media__card {
+    height: 540px;
+  }
+  
+  .three-column-media__content {
+    padding: 1.5em;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Three-column Media",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Add up to 3 media cards that will display in columns on desktop and stack on mobile."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "media_card",
+      "name": "Media Card",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media Type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Recommended size: 800x640px"
+        },
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL",
+          "info": "Enter the direct URL to your video file (MP4 format recommended)"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading (H4)",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Add your description text here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Three-column Media",
+      "blocks": [
+        {
+          "type": "media_card",
+          "settings": {
+            "heading": "Gesture Controlled",
+            "description": "Your glove is the interface. Swipe, tap, ride."
+          }
+        },
+        {
+          "type": "media_card",
+          "settings": {
+            "heading": "Built in Audio Headband",
+            "description": "Sits under your helmet. Balanced sound, no bulk."
+          }
+        },
+        {
+          "type": "media_card",
+          "settings": {
+            "heading": "Seamless Pairing",
+            "description": "Auto-connect. Low-latency. Cold-tested."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

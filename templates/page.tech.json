@@ -187,12 +187,55 @@
         "padding-block-start": 40,
         "padding-block-end": 40
       }
+    },
+    "three_column_media_yhapWg": {
+      "type": "three-column-media",
+      "blocks": {
+        "media_card_CNKike": {
+          "type": "media_card",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/tech-slides--03.jpg",
+            "video_url": "",
+            "heading": "Gesture Controlled",
+            "description": "Your glove is the interface. Swipe, tap, ride."
+          }
+        },
+        "media_card_WqRVD7": {
+          "type": "media_card",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/tech-slides--02.jpg",
+            "video_url": "",
+            "heading": "Built in Audio Headband",
+            "description": "Sits under your helmet. Balanced sound, no bulk."
+          }
+        },
+        "media_card_htjjrE": {
+          "type": "media_card",
+          "settings": {
+            "media_type": "image",
+            "image": "shopify:\/\/shop_images\/tech-slides--01.jpg",
+            "video_url": "",
+            "heading": "Seamless Pairing",
+            "description": "Auto-connect. Low-latency. Cold-tested."
+          }
+        }
+      },
+      "block_order": [
+        "media_card_CNKike",
+        "media_card_WqRVD7",
+        "media_card_htjjrE"
+      ],
+      "name": "Three-column Media",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "email_collection_Rdrwtz",
     "v2_feature_text_mc36Cq",
-    "hero_6CiyB9"
+    "hero_6CiyB9",
+    "three_column_media_yhapWg"
   ]
 }
