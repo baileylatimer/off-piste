@@ -7,7 +7,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h1>Open<\/h1>",
+            "text": "<h1>Off-Piste<\/h1>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -19,6 +19,7 @@
             "case": "none",
             "wrap": "pretty",
             "color": "var(--color-foreground)",
+            "foreground_layer": false,
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -29,48 +30,99 @@
           },
           "blocks": {}
         },
-        "text_Dir7eY": {
-          "type": "text",
-          "name": "t:names.heading",
+        "group_4j7mai": {
+          "type": "group",
+          "name": "t:names.group",
           "settings": {
-            "text": "<h1>24\/7<\/h1>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
             "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-end": 36,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {}
+          "blocks": {
+            "button_MJEUEz": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify:\/\/collections\/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "foreground_layer": true,
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
+            "button_qRLCcy": {
+              "type": "button",
+              "name": "t:names.button",
+              "settings": {
+                "label": "Explore the tech",
+                "link": "shopify:\/\/collections\/all",
+                "open_in_new_tab": false,
+                "style_class": "button-secondary",
+                "foreground_layer": true,
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "button_MJEUEz",
+            "button_qRLCcy"
+          ]
         }
       },
       "block_order": [
         "text_g7JjYi",
-        "text_Dir7eY"
+        "group_4j7mai"
       ],
       "name": "t:names.hero",
       "settings": {
         "link": "",
         "open_in_new_tab": false,
         "media_type_1": "video",
-        "image_1": "shopify:\/\/shop_images\/hero-temp.jpg",
         "video_source_1": "file",
-        "video_file_url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/12fba3d5dca448cf95839521e219ec19.mp4",
+        "video_file_url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/620ce69f35494a8b84664b3e63575b38.mp4",
         "media_type_2": "image",
         "video_source_2": "upload",
         "video_file_url_2": "",
+        "overlay_image": "shopify:\/\/shop_images\/mountain.png",
         "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "space-between",
@@ -99,8 +151,6 @@
       "name": "Feature Text",
       "settings": {
         "feature_heading": "What started as a West Hollywood gas station became an underground icon—one hat at a time. No billboards. No branding teams. Just local legend, stitched and sold behind pump three.",
-        "main_image": "shopify:\/\/shop_images\/gas-station-pump.png",
-        "secondary_image": "shopify:\/\/shop_images\/bird-logo.png",
         "indent": true,
         "right_text": true,
         "justify_text": false,
@@ -119,6 +169,7 @@
             "link": "shopify:\/\/collections\/all",
             "open_in_new_tab": false,
             "style_class": "button",
+            "foreground_layer": true,
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
@@ -392,7 +443,6 @@
         "heading": "What started as a West Hollywood gas station became an underground icon—one hat at a time. No billboards. No branding teams. Just local legend, stitched and sold behind pump three.",
         "button_label": "OUR STORY",
         "button_link": "shopify:\/\/pages\/our-story",
-        "vinyl_image": "shopify:\/\/shop_images\/IaaMG_4587.jpg",
         "vinyl_alt_text": "",
         "rotation_speed": 30,
         "full_width": true
@@ -404,8 +454,6 @@
         "testimonial_PPRpXV": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify:\/\/shop_images\/zach-bryan-post_f683a0eb-fb2c-4a79-b2e1-ffb954eafe0d.jpg",
-            "profile_image": "shopify:\/\/shop_images\/zach-bryan-pfp.jpg",
             "quote": "",
             "instagram_handle": "zachlanebryan",
             "size": "medium"
@@ -414,8 +462,6 @@
         "testimonial_NqrYAa": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify:\/\/shop_images\/saquon-post.jpg",
-            "profile_image": "shopify:\/\/shop_images\/saquon-pfp_e626300a-d012-4df6-9a5b-e2824f27915b.jpg",
             "quote": "",
             "instagram_handle": "saquon",
             "size": "medium"
@@ -424,8 +470,6 @@
         "testimonial_q6z4Dt": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify:\/\/shop_images\/brooklyn-beckham-post.jpg",
-            "profile_image": "shopify:\/\/shop_images\/brooklyn-beckham-pfp.jpg",
             "quote": "",
             "instagram_handle": "brooklynpeltzbeckham",
             "size": "medium"
@@ -434,8 +478,6 @@
         "testimonial_bc37z7": {
           "type": "testimonial",
           "settings": {
-            "image": "shopify:\/\/shop_images\/tony-hawk-post.jpg",
-            "profile_image": "shopify:\/\/shop_images\/tony-hawk-pfp.jpg",
             "quote": "",
             "instagram_handle": "tonyhawk",
             "size": "medium"

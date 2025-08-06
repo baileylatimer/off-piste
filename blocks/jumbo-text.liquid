@@ -125,6 +125,17 @@
       "label": "t:settings.animation_repeat",
       "default": false,
       "visible_if": "{{ block.settings.text_effect == \"blur\" or block.settings.text_effect == \"reveal\" }}"
+    },
+    {
+      "type": "header",
+      "content": "Layer Position"
+    },
+    {
+      "type": "checkbox",
+      "id": "foreground_layer",
+      "label": "Display in foreground",
+      "info": "When enabled, this text will appear above the overlay image. When disabled, it will appear behind the overlay image.",
+      "default": false
     }
   ],
   "presets": [

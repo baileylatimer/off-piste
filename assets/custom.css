@@ -63,7 +63,7 @@ body {
 
 @font-face {
   font-family: 'OT Neue Montreal';
-  src: url('./OTNeueMontreal-SemiBoldSqueezed.otf') format('opentype');
+  src: url('./OTNeueMontreal-BoldSemiSqueezed.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -177,6 +177,7 @@ a strong, a b {
 /* All Button Elements and Classes */
 button,
 .button,
+.button-secondary,
 .btn,
 [type="button"],
 [type="submit"],
@@ -690,12 +691,13 @@ media-gallery .product-media-container, .cart-items__media-image {
   font-size: var(--cart-font-size--sm) !important;
 }
 
-.button {
+.button, .button-secondary {
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
+  min-width: 300px;
 }
 
 .product-badges__badge--rectangle {
@@ -708,4 +710,17 @@ media-gallery .product-media-container, .cart-items__media-image {
   -moz-border-radius: 0 !important;
   -ms-border-radius: 0 !important;
   -o-border-radius: 0 !important;
+}
+
+/* ============================================
+   13. COLOR SCHEME 6 SECONDARY BUTTON OVERRIDE
+   ============================================ */
+
+/* Secondary button styling for color scheme 6 */
+.color-scheme-6 .button--secondary {
+  background: rgba(237, 234, 228, 0.15) !important;
+}
+
+.color-scheme-6 .button--secondary:hover {
+  background: rgba(237, 234, 228, 0.3) !important;
 }

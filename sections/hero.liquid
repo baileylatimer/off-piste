@@ -44,7 +44,6 @@
   .hero__content-wrapper {
     position: relative;
     inset: 0;
-    z-index: var(--layer-flat);
   }
 
   .hero__content-wrapper .group-block-content {
@@ -179,6 +178,120 @@
         left: auto;
       }
     }
+  }
+
+  .hero__overlay-image {
+    position: absolute;
+    inset: 0;
+    grid-column: 1 / -1;
+    z-index: calc(var(--layer-flat) + 1);
+    pointer-events: none;
+  }
+
+  .hero__overlay-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* Elements with background layer setting appear behind the overlay image */
+  .hero__content-wrapper [data-layer="background"],
+  .hero__content-wrapper [data-layer="background"] > *,
+  .hero__content-wrapper [data-layer="background"] .button,
+  .hero__content-wrapper [data-layer="background"] a,
+  .hero__content-wrapper [data-layer="background"] .h1,
+  .hero__content-wrapper [data-layer="background"] h1,
+  .hero__content-wrapper [data-layer="background"] h2,
+  .hero__content-wrapper [data-layer="background"] h3,
+  .hero__content-wrapper [data-layer="background"] h4,
+  .hero__content-wrapper [data-layer="background"] h5,
+  .hero__content-wrapper [data-layer="background"] h6,
+  .hero__content-wrapper [data-layer="background"] .rte-formatter,
+  .hero__content-wrapper [data-layer="background"] .rte {
+    position: relative !important;
+    z-index: var(--layer-flat) !important;
+  }
+
+  /* Elements with foreground layer setting appear in front of the overlay image */
+  /* .hero__content-wrapper [data-layer="foreground"],
+  .hero__content-wrapper [data-layer="foreground"] > *, */
+  .hero__content-wrapper [data-layer="foreground"] .button,
+  .hero__content-wrapper [data-layer="foreground"] a,
+  .hero__content-wrapper [data-layer="foreground"] .h1,
+  .hero__content-wrapper [data-layer="foreground"] h1,
+  .hero__content-wrapper [data-layer="foreground"] h2,
+  .hero__content-wrapper [data-layer="foreground"] h3,
+  .hero__content-wrapper [data-layer="foreground"] h4,
+  .hero__content-wrapper [data-layer="foreground"] h5,
+  .hero__content-wrapper [data-layer="foreground"] h6,
+  .hero__content-wrapper [data-layer="foreground"] .rte-formatter,
+  .hero__content-wrapper [data-layer="foreground"] .rte {
+    position: relative !important;
+    z-index: calc(var(--layer-flat) + 2) !important;
+  }
+
+  /* Default behavior for blocks without layer setting - appear in foreground for safety */
+  .hero__content-wrapper > *:not([data-layer]),
+  .hero__content-wrapper > *:not([data-layer]) > *,
+  .hero__content-wrapper > *:not([data-layer]) .button,
+  .hero__content-wrapper > *:not([data-layer]) a {
+    position: relative !important;
+    z-index: calc(var(--layer-flat) + 2) !important;
+  }
+
+  /* Ensure interactive elements are always accessible with pointer events */
+  .hero__content-wrapper .button,
+  .hero__content-wrapper button,
+  .hero__content-wrapper a[href],
+  .hero__content-wrapper input,
+  .hero__content-wrapper textarea,
+  .hero__content-wrapper select {
+    pointer-events: auto;
+  }
+
+
+
+  .hero__content-wrapper .text-block:nth-child(1) .rte-formatter {
+    --width: calc(100vw - 4em) !important;
+    --max-width: none !important;
+    width: calc(100vw - 4em) !important;
+    max-width: none !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero__content-wrapper .text-block:nth-child(1) h1 {
+
+    line-height: 0.8;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .hero__content-wrapper .text-block:nth-child(1) h1 {
+
+    font-size: 22vw !important;
+margin-top: -.4em !important;
+  }
+
+  .hero__content-wrapper .text-block:nth-child(1)  {
+    z-index: 1 !important;
+
+  }
+
+  .hero__content-wrapper .button-secondary {
+    background: rgba(237, 234, 228, 0.15) !important;
+  }
+
+  .hero__content-wrapper .button-secondary:hover {
+    background: rgba(237, 234, 228, 0.3) !important;
   }
 {% endstylesheet %}
 
@@ -444,8 +557,77 @@
       "
       style="{% render 'layout-panel-style', settings: section.settings %}"
     >
-      {% content_for 'blocks' %}
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign layer_attribute = ''
+          assign fg_layer = block.settings.foreground_layer
+          
+          # Handle different block types with defaults
+          if block.type == 'button'
+            if fg_layer == false
+              assign layer_attribute = 'data-layer="background"'
+            else
+              assign layer_attribute = 'data-layer="foreground"'
+            endif
+          elsif block.type == 'text' or block.type == 'jumbo-text' or block.type == '_heading'
+            if fg_layer == true
+              assign layer_attribute = 'data-layer="foreground"'
+            else
+              assign layer_attribute = 'data-layer="background"'
+            endif
+          else
+            # Default for other block types
+            if fg_layer == false
+              assign layer_attribute = 'data-layer="background"'
+            else
+              assign layer_attribute = 'data-layer="foreground"'
+            endif
+          endif
+        -%}
+        <div {{ layer_attribute }} {{ block.shopify_attributes }}>
+          {%- case block.type -%}
+            {%- when 'text' -%}
+              {% render block.type, block: block %}
+            {%- when 'button' -%}
+              {% render block.type, block: block %}
+            {%- when 'jumbo-text' -%}
+              {% render 'jumbo-text' %}
+            {%- when '_heading' -%}
+              {% render 'text', width: '100%', block: block, fallback_text: text %}
+            {%- when 'logo' -%}
+              {% render block.type, block: block %}
+            {%- when 'spacer' -%}
+              {% render block.type, block: block %}
+            {%- when 'group' -%}
+              {% render block.type, block: block %}
+            {%- when '_marquee' -%}
+              {% render block.type, block: block %}
+            {%- when 'image' -%}
+              {% render block.type, block: block %}
+            {%- when 'video' -%}
+              {% render block.type, block: block %}
+            {%- else -%}
+              {% render block.type, block: block %}
+          {%- endcase -%}
+        </div>
+      {%- endfor -%}
     </div>
+
+    {%- comment -%} Overlay Image (on top of H1 text but below other elements) {%- endcomment -%}
+    {%- if section.settings.overlay_image != blank -%}
+      <div class="hero__overlay-image">
+        {{
+          section.settings.overlay_image
+          | image_url: width: 3840
+          | image_tag:
+            width: section.settings.overlay_image.width,
+            widths: widths,
+            height: section.settings.overlay_image.height,
+            alt: section.settings.overlay_image.alt,
+            sizes: sizes
+        }}
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -469,6 +651,9 @@
     },
     {
       "type": "jumbo-text"
+    },
+    {
+      "type": "_heading"
     },
     {
       "type": "spacer"
@@ -606,6 +791,16 @@
       "label": "Video file URL",
       "info": "Upload your video to Content > Files and paste the URL here",
       "visible_if": "{{ section.settings.media_type_2 == 'video' and section.settings.video_source_2 == 'file' }}"
+    },
+    {
+      "type": "header",
+      "content": "Overlay Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "overlay_image",
+      "label": "Overlay image",
+      "info": "This image will be positioned above the text but below other content (e.g., buttons). Use a transparent PNG for best results."
     },
     {
       "type": "header",
