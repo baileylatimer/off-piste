@@ -848,3 +848,49 @@ footer.section-wrapper .section {
  background-color: transparent !important;
  border: 1px solid #1c1c1c !important;
 }
+
+/* ============================================
+   15. PRODUCT CARD MOBILE HOVER FIX
+   ============================================ */
+
+/* Disable hover image preview on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .card-gallery {
+    pointer-events: none;
+  }
+  
+  .product-card__link,
+  .product-grid__link {
+    pointer-events: auto;
+  }
+  
+  /* Hide secondary images on mobile - show only first image */
+  .card-gallery slideshow-component [data-slide]:not(:first-child) {
+    display: none !important;
+  }
+  
+  /* Ensure slideshow doesn't interfere with link clicks */
+  .card-gallery slideshow-component {
+    pointer-events: none;
+  }
+}
+
+/* Only enable hover effects on devices that support hovering */
+@media (hover: hover) {
+  .card-gallery:hover slideshow-component {
+    pointer-events: auto;
+  }
+}
+
+
+.menu-drawer__featured-content-list {
+  display: none !important;
+}
+
+.footer-utilities__group--right {
+  display: none !important
+}
+
+.footer-utilities__group {
+  justify-content: center;
+}

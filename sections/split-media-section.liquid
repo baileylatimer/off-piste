@@ -4,13 +4,25 @@
       <!-- Text Column -->
       <div class="split-media-section__text-column">
         <div class="split-media-section__text-content">
-          {% if section.settings.heading != blank %}
-            <h2 class="split-media-section__heading">{{ section.settings.heading | escape }}</h2>
-          {% endif %}
+          <!-- Grouped content at top -->
+          <div class="split-media-section__content-group">
+            {% if section.settings.heading != blank %}
+              <h2 class="split-media-section__heading">{{ section.settings.heading | escape }}</h2>
+            {% endif %}
+            
+            {% if section.settings.description != blank %}
+              <div class="split-media-section__description">
+                {{ section.settings.description }}
+              </div>
+            {% endif %}
+          </div>
           
-          {% if section.settings.description != blank %}
-            <div class="split-media-section__description">
-              {{ section.settings.description }}
+          <!-- Button at bottom -->
+          {% if section.settings.button_label != blank and section.settings.button_url != blank %}
+            <div class="split-media-section__button-wrapper">
+              <a href="{{ section.settings.button_url }}" class="button split-media-section__button">
+                {{ section.settings.button_label | escape }}
+              </a>
             </div>
           {% endif %}
         </div>
@@ -44,14 +56,6 @@
             </div>
           {% endif %}
 
-          <!-- Button Overlay -->
-          {% if section.settings.button_label != blank and section.settings.button_url != blank %}
-            <div class="split-media-section__button-wrapper">
-              <a href="{{ section.settings.button_url }}" class="button split-media-section__button">
-                {{ section.settings.button_label | escape }}
-              </a>
-            </div>
-          {% endif %}
         </div>
       </div>
     </div>
@@ -76,13 +80,11 @@ margin-top: 2em;
 }
 
 .split-media-section__text-column {
-  background-color: #D9D3C7;
+  background-color: #CDD5DA;
   border-radius: 8px;
   padding: 2em;
   display: flex;
   flex-direction: column;
-  align-items: space-between;
-  justify-content: space-between;
 }
 
 .split-media-section__text-content {
@@ -90,26 +92,28 @@ margin-top: 2em;
   height: 650px;
   display: flex;
   flex-direction: column;
-  align-items: space-between;
   justify-content: space-between;
+}
 
+.split-media-section__content-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 @media screen and (max-width: 749px) {
   .split-media-section__text-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: space-between;
-  justify-content: space-between;
-
-   padding: 2em .5em;
-}
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+  }
 }
 
 .split-media-section__heading {
-  margin: 0 0 1em 0;
+  margin: 0;
   font-family: var(--font-header) !important;
   font-weight: var(--font-weight-semibold) !important;
   text-transform: uppercase !important;
@@ -121,6 +125,7 @@ margin-top: 2em;
   color: #171717;
   line-height: 1.5;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .split-media-section__media-column {
@@ -155,27 +160,30 @@ margin-top: 2em;
 }
 
 .split-media-section__button-wrapper {
-  position: absolute;
-  bottom: 1em;
-  left: 1em;
-  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .split-media-section__button {
-  background-color: #EDEAE4 !important;
-  color: #171717 !important;
+  background-color: #1c1c1c !important;
+  color: #EDEAE4 !important;
+  border: 1px solid #EDEAE4 !important;
   min-width: 300px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-family: var(--font-button) !important;
   text-transform: uppercase;
-  transition: opacity 0.3s ease; 
+  transition: all 0.3s ease; 
   border-radius: 0;
+  padding: 1em 2em;
 }
 
 .split-media-section__button:hover {
-  opacity: 0.8;
+  background-color: #EDEAE4 !important;
+  color: #1c1c1c !important;
+  border: 1px solid #1c1c1c !important;
 }
 
 /* Mobile Responsive */
