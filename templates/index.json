@@ -73,8 +73,8 @@
               "type": "button",
               "name": "t:names.button",
               "settings": {
-                "label": "Shop now",
-                "link": "shopify:\/\/collections\/all",
+                "label": "Explore the tech",
+                "link": "shopify:\/\/pages\/our-technology",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "foreground_layer": true,
@@ -89,8 +89,8 @@
               "type": "button",
               "name": "t:names.button",
               "settings": {
-                "label": "Explore the tech",
-                "link": "shopify:\/\/collections\/all",
+                "label": "Shop",
+                "link": "shopify:\/\/collections\/apparel",
                 "open_in_new_tab": false,
                 "style_class": "button-secondary",
                 "foreground_layer": true,

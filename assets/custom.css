@@ -44,6 +44,10 @@
 html, 
 body {
   background-color: var(--color-bg) !important;
+  background-image: url('https://cdn.shopify.com/s/files/1/0882/8370/9737/files/bg-tile.jpg?v=1754445121') !important;
+  background-size: 300px 300px !important;
+  background-repeat: repeat !important;
+  background-attachment: fixed !important;
 }
 
 
@@ -729,4 +733,98 @@ media-gallery .product-media-container, .cart-items__media-image {
 
 .color-scheme-6 .button--secondary:hover {
   background: rgba(237, 234, 228, 0.3) !important;
+}
+
+/* ============================================
+   14. FOOTER BACKGROUND IMAGE
+   ============================================ */
+
+/* Make footer section full viewport width */
+footer.section-wrapper {
+  position: relative;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+/* Override section page-width constraints */
+footer.section-wrapper .section.section--page-width {
+  max-width: 100vw !important;
+  width: 100vw !important;
+  margin-left: 50% !important;
+  transform: translateX(-50%) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Make background image container full viewport width */
+footer.section-wrapper .background-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  min-height: 600px;
+margin-left: -40px;
+}
+
+footer.section-wrapper {
+  min-height: 600px;
+}
+
+
+@media screen and (width < 750px) {
+  footer.section-wrapper .background-image-container {
+  margin-left: -16px;
+  }
+  footer.section-wrapper .background-image-container {
+  margin-left: -16px;
+  }
+}
+
+
+/* Make the footer image maintain aspect ratio and fill width */
+footer.section-wrapper .background-image-container img {
+  width: 100vw !important;
+  height: auto !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block;
+}
+
+/* Ensure footer content wrapper is positioned above background */
+footer.section-wrapper .section-content-wrapper {
+  position: relative;
+  z-index: 2;
+  min-height: inherit;
+}
+
+/* Set footer minimum height based on content needs */
+footer.section-wrapper .section {
+  min-height: 600px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+
+  footer.section-wrapper {
+    min-height: 480px;
+  }
+  
+  footer.section-wrapper .background-image-container {
+    min-height: 480px;
+  }
+
+  /* Mobile footer background image */
+  footer.section-wrapper .background-image-container img {
+    content: url('https://cdn.shopify.com/s/files/1/0882/8370/9737/files/footer-mobile.jpg?v=1754446171') !important;
+  }
+
+  .footer-utilities__group {
+    margin-top: -200px;
+  }
 }
