@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_jVaWmY": {
@@ -7,8 +16,8 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h1>Off-Piste<\/h1>",
-            "width": "fit-content",
+            "text": "<h1>Off Piste</h1>",
+            "width": "100%",
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "rte",
@@ -24,7 +33,7 @@
             "background_color": "#00000026",
             "corner_radius": 0,
             "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-end": 75,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -74,7 +83,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "Explore the tech",
-                "link": "shopify:\/\/pages\/our-technology",
+                "link": "shopify://pages/our-technology",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "foreground_layer": true,
@@ -90,7 +99,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "Shop",
-                "link": "shopify:\/\/collections\/apparel",
+                "link": "shopify://collections/apparel",
                 "open_in_new_tab": false,
                 "style_class": "button-secondary",
                 "foreground_layer": true,
@@ -118,11 +127,11 @@
         "open_in_new_tab": false,
         "media_type_1": "video",
         "video_source_1": "file",
-        "video_file_url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/620ce69f35494a8b84664b3e63575b38.mp4",
+        "video_file_url_1": "https://cdn.shopify.com/videos/c/o/v/620ce69f35494a8b84664b3e63575b38.mp4",
         "media_type_2": "image",
         "video_source_2": "upload",
         "video_file_url_2": "",
-        "overlay_image": "shopify:\/\/shop_images\/mountain-4.png",
+        "overlay_image": "shopify://shop_images/mountain-4.png",
         "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "space-between",
@@ -166,7 +175,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "View all",
-            "link": "shopify:\/\/collections\/all",
+            "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
             "foreground_layer": true,
@@ -216,7 +225,7 @@
               "name": "t:names.collection_title",
               "disabled": true,
               "settings": {
-                "text": "<h2>The Hats<\/h2>",
+                "text": "<h2>The Hats</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -420,7 +429,7 @@
       "settings": {
         "collection": "all",
         "layout_type": "grid",
-        "carousel_on_mobile": false,
+        "carousel_on_mobile": true,
         "max_products": 10,
         "columns": 5,
         "mobile_columns": "2",
@@ -443,7 +452,7 @@
       "settings": {
         "heading": "What started as a West Hollywood gas station became an underground icon—one hat at a time. No billboards. No branding teams. Just local legend, stitched and sold behind pump three.",
         "button_label": "OUR STORY",
-        "button_link": "shopify:\/\/pages\/our-story",
+        "button_link": "shopify://pages/our-story",
         "vinyl_alt_text": "",
         "rotation_speed": 30,
         "full_width": true
@@ -454,12 +463,12 @@
       "name": "Split Media Section",
       "settings": {
         "heading": "MOVEMENT IS THE INTERFACE →  DESIGNED FOR PRECISE CONTROL.",
-        "description": "<p>Gesture controls built into our gloves let you manage crisp, uninterrupted audio through our headband.<\/p>",
+        "description": "<p>Seamless gesture controls and crisp audio to enhance your days on the mountain</p>",
         "media_type": "image",
-        "image": "shopify:\/\/shop_images\/Frame_724.jpg",
+        "image": "shopify://shop_images/Frame_724.jpg",
         "video_url": "",
         "button_label": "Learn More",
-        "button_url": "shopify:\/\/pages\/our-technology"
+        "button_url": "shopify://pages/our-technology"
       }
     },
     "full_media_section_rpp3XK": {
@@ -467,10 +476,10 @@
       "name": "Full Media Section",
       "settings": {
         "media_type": "video",
-        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/86e71047138f466fab02cdb35ee0c7b3.mp4",
-        "heading": "Audio gear that disappears into your ride—seamless, rugged, built for motion.",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/86e71047138f466fab02cdb35ee0c7b3.mp4",
+        "heading": "Tech that disappears into your ride—seamless and built for motion.",
         "button_label": "ABOUT US",
-        "button_url": "shopify:\/\/pages\/about-us"
+        "button_url": "shopify://pages/about-us"
       }
     }
   },
