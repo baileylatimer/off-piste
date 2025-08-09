@@ -35,7 +35,7 @@
             "padding-block-start": 0,
             "padding-block-end": 75,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 17
           },
           "blocks": {}
         },
@@ -131,7 +131,7 @@
         "media_type_2": "image",
         "video_source_2": "upload",
         "video_file_url_2": "",
-        "overlay_image": "shopify://shop_images/mountain-4.png",
+        "overlay_image": "shopify://shop_images/mountain-2_fce6d925-582e-47a6-abcc-03766ee439ee.png",
         "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "space-between",
