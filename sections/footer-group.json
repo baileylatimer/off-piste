@@ -290,7 +290,7 @@
       "name": "Footer",
       "settings": {
         "footer_image_desktop": "shopify://shop_images/footer.jpg",
-        "footer_image_mobile": "shopify://shop_images/footer-mobile.jpg",
+        "footer_image_mobile": "shopify://shop_images/mobile_footer2.png",
         "footer_image_alt": "",
         "content_direction": "column",
         "vertical_on_mobile": true,
