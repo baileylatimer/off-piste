@@ -460,10 +460,11 @@
     },
     "split_media_section_QEyRyp": {
       "type": "split-media-section",
+      "custom_css": [],
       "name": "Split Media Section",
       "settings": {
         "heading": "MOVEMENT IS THE INTERFACE →  DESIGNED FOR PRECISE CONTROL.",
-        "description": "<p>Seamless gesture controls and crisp audio to control your vibe on the mountain</p>",
+        "description": "<p>Seamless gesture controls and crisp audio embedded into your ride</p>",
         "media_type": "image",
         "image": "shopify://shop_images/Frame_724.jpg",
         "video_url": "",
