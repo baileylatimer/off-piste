@@ -42,6 +42,24 @@
     </div>
   {% endif %}
 
+<style>
+  /* Desktop keeps full-bleed cover */
+  #shopify-section-{{ section.id }} .footer-media img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Mobile: show the whole image (no crop) */
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .footer-media img {
+      object-fit: contain;     /* <-- switch here if you want no crop */
+      object-position: center;
+      background: #000;        /* optional letterbox color */
+    }
+  }
+</style>
+
+
   <style>
     /* Scope to this section only */
     #shopify-section-{{ section.id }} .section { position: relative; overflow: hidden; }
