@@ -34,10 +34,12 @@
                   sizes="100vw">
         {% endif %}
         <img
-          src="{{ fallback | image_url: width: 1600 }}"
-          alt="{{ section.settings.footer_image_alt | escape }}"
-          loading="lazy"
-          {% if fallback %}width="{{ fallback.width }}" height="{{ fallback.height }}"{% endif %}>
+        src="{{ fallback | image_url: width: 1600 }}"
+        alt="{{ section.settings.footer_image_alt | escape }}"
+        loading="lazy"
+        width="{{ fallback.width | default: 1600 }}"
+        height="{{ fallback.height | default: 900 }}"
+        >
       </picture>
     </div>
   {% endif %}
