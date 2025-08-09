@@ -15,6 +15,43 @@
     background_image_position: section.settings.background_image_position
   %}
 
+  {%- comment -%} ▼▼▼ STEP 2: Responsive footer media (desktop + mobile) ▼▼▼ {%- endcomment -%}
+  {% assign desktop = section.settings.footer_image_desktop %}
+  {% assign mobile  = section.settings.footer_image_mobile %}
+  {% assign fallback = mobile | default: desktop %}
+
+  {% if desktop or mobile %}
+    <div class="footer-media">
+      <picture>
+        {% if mobile %}
+          <source media="(max-width: 749px)"
+                  srcset="{{ mobile  | image_url: width: 1100 }} 1100w, {{ mobile  | image_url: width: 1600 }} 1600w"
+                  sizes="100vw">
+        {% endif %}
+        {% if desktop %}
+          <source media="(min-width: 750px)"
+                  srcset="{{ desktop | image_url: width: 1800 }} 1800w, {{ desktop | image_url: width: 2200 }} 2200w"
+                  sizes="100vw">
+        {% endif %}
+        <img
+          src="{{ fallback | image_url: width: 1600 }}"
+          alt="{{ section.settings.footer_image_alt | escape }}"
+          loading="lazy"
+          {% if fallback %}width="{{ fallback.width }}" height="{{ fallback.height }}"{% endif %}>
+      </picture>
+    </div>
+  {% endif %}
+
+  <style>
+    /* Scope to this section only */
+    #shopify-section-{{ section.id }} .section { position: relative; overflow: hidden; }
+    #shopify-section-{{ section.id }} .footer-media { position: absolute; inset: 0; z-index: 0; }
+    #shopify-section-{{ section.id }} .footer-media picture,
+    #shopify-section-{{ section.id }} .footer-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    #shopify-section-{{ section.id }} .section-content-wrapper { position: relative; z-index: 1; }
+  </style>
+  {%- comment -%} ▲▲▲ STEP 2 end ▲▲▲ {%- endcomment -%}
+
   <div
     class="
       spacing-style
@@ -89,6 +126,10 @@
       "type": "header",
       "content": "t:content.layout"
     },
+    { "type": "header", "content": "Footer media" },
+    { "type": "image_picker", "id": "footer_image_desktop", "label": "Desktop image" },
+    { "type": "image_picker", "id": "footer_image_mobile",  "label": "Mobile image" },
+    { "type": "text", "id": "footer_image_alt", "label": "Alt text"  },
     {
       "type": "select",
       "id": "content_direction",
