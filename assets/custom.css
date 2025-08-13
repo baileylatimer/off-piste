@@ -822,6 +822,7 @@ footer.section-wrapper .section {
   /* Mobile footer background image */
   footer.section-wrapper .background-image-container img {
     content: url('https://cdn.shopify.com/s/files/1/0882/8370/9737/files/footer-mobile.jpg?v=1754446171') !important;
+    object-fit: fill !important;
   }
 
   .footer-utilities__group {
