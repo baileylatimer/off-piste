@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer",
@@ -101,7 +110,7 @@
                   "type": "text",
                   "name": "Heading",
                   "settings": {
-                    "text": "<h2>Join the club<\/h2>",
+                    "text": "<h2>Join the club</h2>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -128,7 +137,7 @@
                   "type": "text",
                   "name": "Text",
                   "settings": {
-                    "text": "<p>Get exclusive deals and early access to new products. <\/p>",
+                    "text": "<p>Get exclusive deals and early access to new products. </p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -192,8 +201,8 @@
           "name": "t:names.footer_utilities",
           "settings": {
             "divider_thickness": 0,
-            "padding-block-start": 12,
-            "padding-block-end": 0
+            "padding-block-start": 0,
+            "padding-block-end": 49
           },
           "blocks": {
             "copyright": {
@@ -224,7 +233,7 @@
                   "type": "_social-link",
                   "name": "Facebook",
                   "settings": {
-                    "link": "https:\/\/www.facebook.com\/shopify"
+                    "link": "https://www.facebook.com/shopify"
                   },
                   "blocks": {}
                 },
@@ -232,7 +241,7 @@
                   "type": "_social-link",
                   "name": "Instagram ",
                   "settings": {
-                    "link": "https:\/\/www.instagram.com\/shopify\/#"
+                    "link": "https://www.instagram.com/shopify/#"
                   },
                   "blocks": {}
                 },
@@ -240,15 +249,15 @@
                   "type": "_social-link",
                   "name": "TikTok",
                   "settings": {
-                    "link": "https:\/\/www.tiktok.com\/@shopify"
+                    "link": "https://www.tiktok.com/@shopify"
                   },
                   "blocks": {}
                 },
                 "social_link_Qw9AXL": {
                   "type": "_social-link",
-                  "name": "X \/ Twitter",
+                  "name": "X / Twitter",
                   "settings": {
-                    "link": "https:\/\/x.com\/shopify"
+                    "link": "https://x.com/shopify"
                   },
                   "blocks": {}
                 },
@@ -256,7 +265,7 @@
                   "type": "_social-link",
                   "name": "YouTube",
                   "settings": {
-                    "link": "https:\/\/www.youtube.com\/shopify"
+                    "link": "https://www.youtube.com/shopify"
                   },
                   "blocks": {}
                 }
@@ -280,6 +289,9 @@
       ],
       "name": "Footer",
       "settings": {
+        "footer_image_desktop": "shopify://shop_images/footer.jpg",
+        "footer_image_mobile": "shopify://shop_images/mobile_footer2.png",
+        "footer_image_alt": "",
         "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "center",
@@ -293,7 +305,7 @@
         "color_scheme": "scheme-1",
         "background_media": "image",
         "video_position": "cover",
-        "background_image": "shopify:\/\/shop_images\/footer.jpg",
+        "background_image": "shopify://shop_images/footer.jpg",
         "background_image_position": "cover",
         "padding-block-start": 0,
         "padding-block-end": 48
