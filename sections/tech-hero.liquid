@@ -358,13 +358,19 @@ body:has(> #header-group > .header-section > #header-component[transparent]) .te
     height: calc(100vh - 60px);
   }
 
-  /* Content fills the section height */
+  /* Content fills the section height — heading+form at top, description at bottom */
   .tech-hero__content {
     height: 100%;
     padding: 1.5rem 1.25rem 2rem;
     max-width: 100%;
     align-items: center;
     text-align: center;
+    justify-content: flex-start;
+    gap: 1.25rem;
+  }
+
+  .tech-hero__description {
+    margin-top: auto;
   }
 
   /* Heading — merged into one rule, centered, big-first-word */

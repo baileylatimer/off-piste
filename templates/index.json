@@ -7,7 +7,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h1>Off-Piste<\/h1>",
+            "text": "<h1>Off Piste<\/h1>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -455,9 +455,9 @@
       "settings": {
         "heading": "MOVEMENT IS THE INTERFACE →  DESIGNED FOR PRECISE CONTROL.",
         "description": "<p>Gesture controls built into our gloves let you manage crisp, uninterrupted audio through our headband.<\/p>",
-        "media_type": "image",
+        "media_type": "video",
         "image": "shopify:\/\/shop_images\/Frame_724.jpg",
-        "video_url": "",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/44bcd57d76d54b04a98a5bd8769a636e.mp4",
         "button_label": "Learn More",
         "button_url": "shopify:\/\/pages\/our-technology"
       }
@@ -467,7 +467,7 @@
       "name": "Full Media Section",
       "settings": {
         "media_type": "video",
-        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/86e71047138f466fab02cdb35ee0c7b3.mp4",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/231b3f256ac34e788b756a893d9320b3.mp4",
         "heading": "Audio gear that disappears into your ride—seamless, rugged, built for motion.",
         "button_label": "ABOUT US",
         "button_url": "shopify:\/\/pages\/about-us"
