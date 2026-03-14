@@ -1,0 +1,323 @@
+<section class="tech-specs-section" id="tech-specs-{{ section.id }}">
+  <div class="tech-specs-section__grid{% if section.settings.invert_columns %} tech-specs-section__grid--inverted{% endif %}">
+
+    <!-- Specs Card Column -->
+    <div class="tech-specs-section__specs-column">
+      <div class="tech-specs-section__specs-card">
+        {% if section.blocks.size > 0 %}
+          <dl class="tech-specs-section__specs-list">
+            {% for block in section.blocks %}
+              <div class="tech-specs-section__spec-row" {{ block.shopify_attributes }}>
+                <dt class="tech-specs-section__spec-label">{{ block.settings.label | escape }}</dt>
+                <dd class="tech-specs-section__spec-value">{{ block.settings.value | escape }}</dd>
+              </div>
+            {% endfor %}
+          </dl>
+        {% else %}
+          <p class="tech-specs-section__empty">Add spec rows using the theme customizer.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Text Column -->
+    <div class="tech-specs-section__text-column">
+      <div class="tech-specs-section__text-inner">
+        {% if section.settings.heading != blank %}
+          <h2 class="tech-specs-section__heading">{{ section.settings.heading | escape }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <div class="tech-specs-section__description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ============================================
+   TECH SPECS SECTION
+   ============================================ */
+
+.tech-specs-section {
+  margin-top: 8px;
+}
+
+.tech-specs-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: stretch;
+}
+
+/* ---- Inverted column order (desktop only) ---- */
+@media screen and (min-width: 750px) {
+  .tech-specs-section__grid--inverted .tech-specs-section__specs-column {
+    order: 2;
+  }
+  .tech-specs-section__grid--inverted .tech-specs-section__text-column {
+    order: 1;
+  }
+}
+
+/* ---- Specs Column ---- */
+.tech-specs-section__specs-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-specs-section__specs-card {
+  background-color: #28282A;
+  border-radius: 8px;
+  padding: 2em;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ---- Specs List ---- */
+.tech-specs-section__specs-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-specs-section__spec-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  padding: 0.875em 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  align-items: start;
+}
+
+.tech-specs-section__spec-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.tech-specs-section__spec-label {
+  font-family: var(--font-body) !important;
+  font-size: 0.7rem !important;
+  text-transform: uppercase;
+  color: rgba(237, 234, 228, 0.55);
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.tech-specs-section__spec-value {
+  font-family: var(--font-body) !important;
+  font-size: 0.7rem !important;
+  text-transform: uppercase;
+  color: #EDEAE4;
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.tech-specs-section__empty {
+  font-family: var(--font-body) !important;
+  font-size: 0.75rem !important;
+  color: rgba(237, 234, 228, 0.4);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ---- Text Column ---- */
+.tech-specs-section__text-column {
+  background-color: #CDD5DA;
+  border-radius: 8px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.tech-specs-section__text-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.tech-specs-section__heading {
+  font-family: var(--font-header) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  text-transform: uppercase !important;
+  color: #171717 !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+.tech-specs-section__description {
+  font-family: var(--font-body) !important;
+  color: #171717;
+  line-height: 1.5;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.tech-specs-section__description p {
+  margin: 0;
+  font-size: inherit !important;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET
+   ============================================ */
+@media screen and (min-width: 750px) and (max-width: 1023px) {
+  .tech-specs-section__specs-card {
+    padding: 1.5em;
+  }
+
+  .tech-specs-section__text-column {
+    padding: 1.5em;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE
+   ============================================ */
+@media screen and (max-width: 749px) {
+  .tech-specs-section {
+    margin-top: 8px;
+  }
+
+  .tech-specs-section__grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Text on top, specs below — regardless of invert setting */
+  .tech-specs-section__text-column {
+    order: 1;
+    padding: 1.25em 1.25em 1.5em;
+  }
+
+  .tech-specs-section__specs-column {
+    order: 2;
+  }
+
+  .tech-specs-section__specs-card {
+    min-height: unset;
+    padding: 1.25em 1.25em 1.5em;
+  }
+
+  .tech-specs-section__spec-label,
+  .tech-specs-section__spec-value {
+    font-size: 0.65rem !important;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Tech Specs Section",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (H2)",
+      "default": "Built for the Mountain."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Every component is engineered for cold weather, wet conditions, and all-day riding. No compromises.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "invert_columns",
+      "label": "Invert column order",
+      "default": false,
+      "info": "When enabled, the text appears on the left and the specs card on the right (desktop only)."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "spec_row",
+      "name": "Spec Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Connectivity"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Bluetooth 5.3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tech Specs Section",
+      "blocks": [
+        {
+          "type": "spec_row",
+          "settings": {
+            "label": "Connectivity",
+            "value": "Bluetooth 5.3"
+          }
+        },
+        {
+          "type": "spec_row",
+          "settings": {
+            "label": "Battery Life",
+            "value": "8+ Hours on a Charge"
+          }
+        },
+        {
+          "type": "spec_row",
+          "settings": {
+            "label": "Compatibility",
+            "value": "iOS & Android"
+          }
+        },
+        {
+          "type": "spec_row",
+          "settings": {
+            "label": "Water Resistance",
+            "value": "Snow & Splash Proof"
+          }
+        },
+        {
+          "type": "spec_row",
+          "settings": {
+            "label": "Charging",
+            "value": "USB-C Magnetic"
+          }
+        },
+        {
+          "type": "spec_row",
+          "settings": {
+            "label": "Materials",
+            "value": "Gore-Tex Shell, Primaloft Insulation"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

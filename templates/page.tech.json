@@ -49,8 +49,26 @@
         "padding-block-end": 80
       }
     },
+    "tech_hero_1": {
+      "type": "tech-hero",
+      "name": "Tech Hero",
+      "settings": {
+        "media_type_desktop": "video",
+        "video_url_desktop": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/231b3f256ac34e788b756a893d9320b3.mp4",
+        "media_type_mobile": "video",
+        "video_url_mobile": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/7c8ed31da17c47a7b9b0f00ae7fb4159.mp4",
+        "heading": "Movement is the Interface",
+        "description": "<p>Control your music with a flick of the wrist. Talk to your crew without stopping. Your glove is the controller — your phone stays in your pocket.<\/p>",
+        "show_email_form": true,
+        "email_label": "Be first to ride",
+        "input_placeholder": "your@email.com",
+        "button_label": "Notify Me",
+        "overlay_opacity": 30
+      }
+    },
     "email_collection_Rdrwtz": {
       "type": "email-collection",
+      "disabled": true,
       "name": "Email Collection",
       "settings": {
         "media_type": "image",
@@ -188,6 +206,167 @@
         "padding-block-end": 40
       }
     },
+    "tech_feature_section_1": {
+      "type": "tech-feature-section",
+      "blocks": {
+        "feature_box_1": {
+          "type": "feature_box",
+          "settings": {
+            "icon_select": "arrow-left",
+            "title": "Swipe Left",
+            "description": "Prev Track"
+          }
+        },
+        "feature_box_2": {
+          "type": "feature_box",
+          "settings": {
+            "icon_select": "arrow-right",
+            "title": "Swipe Right",
+            "description": "Next Track"
+          }
+        },
+        "feature_box_3": {
+          "type": "feature_box",
+          "settings": {
+            "icon_select": "arrows-updown",
+            "title": "Swipe Up\/Down",
+            "description": "Volume Control"
+          }
+        },
+        "feature_box_4": {
+          "type": "feature_box",
+          "settings": {
+            "icon_select": "double-tap",
+            "title": "Double Tap",
+            "description": "Play \/ Pause"
+          }
+        }
+      },
+      "block_order": [
+        "feature_box_1",
+        "feature_box_2",
+        "feature_box_3",
+        "feature_box_4"
+      ],
+      "name": "Tech Feature Section",
+      "settings": {
+        "overline": "001 \/ MUSIC CONTROLS",
+        "heading": "Your Ride. Your Soundtrack. Zero Interruptions.",
+        "description": "<p>Gesture recognition built into the glove lets you skip tracks, adjust volume, and pause your music with simple hand movements — without breaking your flow. Swipe, tap, and flick. The mountain is yours.<\/p>",
+        "media_type": "video",
+        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/7e23d90b300141c9a416b84458419e6d.mp4",
+        "invert_columns": false
+      }
+    },
+    "tech_feature_section_PcQmGQ": {
+      "type": "tech-feature-section",
+      "blocks": {
+        "feature_box_9TwbVL": {
+          "type": "feature_box",
+          "settings": {
+            "icon_select": "arrows-updown",
+            "title": "Got separated?",
+            "description": "Voice message your crew instantly. No stopping, no phone."
+          }
+        },
+        "feature_box_GhjPRR": {
+          "type": "feature_box",
+          "settings": {
+            "icon_select": "double-tap",
+            "title": "Wrong turn?",
+            "description": "Call out the line before your friend hits the wrong trail."
+          }
+        }
+      },
+      "block_order": [
+        "feature_box_9TwbVL",
+        "feature_box_GhjPRR"
+      ],
+      "name": "Tech Feature Section",
+      "settings": {
+        "overline": "002 \/ Voice chat",
+        "heading": "Talk to your crew.\u2028Hands free.",
+        "description": "<p>Send and receive live voice messages to your friends on the mountain. No fumbling for your phone when you get separated. No wrong turns. Tap to  talk, release to send — like a walkie-talkie built into your glove.<\/p>",
+        "media_type": "image",
+        "image": "shopify:\/\/shop_images\/hf_20260314_043927_e0fac3b0-1c42-44b7-bb89-fe820726ff1c_1.jpg",
+        "video_url": "",
+        "invert_columns": true
+      }
+    },
+    "tech_specs_section_1": {
+      "type": "tech-specs-section",
+      "blocks": {
+        "spec_row_1": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Connectivity",
+            "value": "Bluetooth 5.3"
+          }
+        },
+        "spec_row_2": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Battery Life",
+            "value": "8+ Hours on a Charge"
+          }
+        },
+        "spec_row_3": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Compatibility",
+            "value": "iOS & Android"
+          }
+        },
+        "spec_row_4": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Water Resistance",
+            "value": "Snow & Splash Proof"
+          }
+        },
+        "spec_row_5": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Charging",
+            "value": "USB-C Magnetic"
+          }
+        },
+        "spec_row_6": {
+          "type": "spec_row",
+          "settings": {
+            "label": "Materials",
+            "value": "Gore-Tex Shell, Primaloft Insulation"
+          }
+        }
+      },
+      "block_order": [
+        "spec_row_1",
+        "spec_row_2",
+        "spec_row_3",
+        "spec_row_4",
+        "spec_row_5",
+        "spec_row_6"
+      ],
+      "name": "Tech Specs Section",
+      "settings": {
+        "heading": "Built for the Mountain.",
+        "description": "<p>Every component is engineered for cold weather, wet conditions, and all-day riding. No compromises.<\/p>",
+        "invert_columns": true
+      }
+    },
+    "media_cta_section_1": {
+      "type": "media-cta-section",
+      "name": "Media CTA Section",
+      "settings": {
+        "media_type": "image",
+        "video_url": "",
+        "heading": "Built for Riders, by Riders",
+        "description": "Pre-orders dropping soon.",
+        "show_email_form": true,
+        "input_placeholder": "your@email.com",
+        "button_label": "Notify Me"
+      }
+    },
     "three_column_media_yhapWg": {
       "type": "three-column-media",
       "blocks": {
@@ -227,15 +406,21 @@
         "media_card_WqRVD7",
         "media_card_htjjrE"
       ],
+      "disabled": true,
       "name": "Three-column Media",
       "settings": {}
     }
   },
   "order": [
     "main",
+    "tech_hero_1",
     "email_collection_Rdrwtz",
     "v2_feature_text_mc36Cq",
     "hero_6CiyB9",
+    "tech_feature_section_1",
+    "tech_feature_section_PcQmGQ",
+    "tech_specs_section_1",
+    "media_cta_section_1",
     "three_column_media_yhapWg"
   ]
 }

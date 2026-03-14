@@ -1,0 +1,557 @@
+<section
+  class="tech-hero"
+  id="tech-hero-{{ section.id }}"
+  style="--tech-hero-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"
+>
+
+  <!-- Background Media — Desktop -->
+  <div class="tech-hero__media tech-hero__media--desktop">
+    {% if section.settings.media_type_desktop == 'video' and section.settings.video_url_desktop != blank %}
+      <video autoplay muted loop playsinline>
+        <source src="{{ section.settings.video_url_desktop }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.image_desktop != blank %}
+      <img
+        src="{{ section.settings.image_desktop | image_url: width: 2400 }}"
+        alt="{{ section.settings.heading | escape }}"
+        loading="eager"
+        fetchpriority="high"
+        width="{{ section.settings.image_desktop.width }}"
+        height="{{ section.settings.image_desktop.height }}"
+      >
+    {% else %}
+      <div class="tech-hero__placeholder"></div>
+    {% endif %}
+  </div>
+
+  <!-- Background Media — Mobile -->
+  <div class="tech-hero__media tech-hero__media--mobile">
+    {% if section.settings.media_type_mobile == 'video' and section.settings.video_url_mobile != blank %}
+      <video autoplay muted loop playsinline>
+        <source src="{{ section.settings.video_url_mobile }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.image_mobile != blank %}
+      <img
+        src="{{ section.settings.image_mobile | image_url: width: 800 }}"
+        alt="{{ section.settings.heading | escape }}"
+        loading="eager"
+        fetchpriority="high"
+        width="{{ section.settings.image_mobile.width }}"
+        height="{{ section.settings.image_mobile.height }}"
+      >
+    {% elsif section.settings.image_desktop != blank %}
+      <img
+        src="{{ section.settings.image_desktop | image_url: width: 800 }}"
+        alt="{{ section.settings.heading | escape }}"
+        loading="eager"
+        fetchpriority="high"
+        width="{{ section.settings.image_desktop.width }}"
+        height="{{ section.settings.image_desktop.height }}"
+      >
+    {% else %}
+      <div class="tech-hero__placeholder"></div>
+    {% endif %}
+  </div>
+
+  <!-- Overlay -->
+  <div class="tech-hero__overlay"></div>
+
+  <!-- Content -->
+  <div class="tech-hero__content">
+
+    <!-- Heading — top -->
+    {% if section.settings.heading != blank %}
+      {%- assign heading_words = section.settings.heading | split: ' ' -%}
+      {%- assign first_word = heading_words | first -%}
+      {%- assign rest_words = heading_words | slice: 1, 20 | join: ' ' -%}
+      <h2 class="tech-hero__heading">
+        <span class="tech-hero__heading-first">{{ first_word | escape }}</span>
+        {%- if rest_words != blank -%}
+          <span class="tech-hero__heading-rest"> {{ rest_words | escape }}</span>
+        {%- endif -%}
+      </h2>
+    {% endif %}
+
+    <!-- Middle group: email form -->
+    <div class="tech-hero__middle">
+      {% if section.settings.show_email_form %}
+        <div class="tech-hero__form-group">
+          {% if section.settings.email_label != blank %}
+            <p class="tech-hero__email-label">{{ section.settings.email_label | escape }}</p>
+          {% endif %}
+          <div class="tech-hero__form-wrapper">
+            {%- form 'customer', class: 'tech-hero__form' -%}
+              <div class="tech-hero__input-group">
+                <label for="TechHeroEmail-{{ section.id }}" class="visually-hidden">Email address</label>
+                <input
+                  id="TechHeroEmail-{{ section.id }}"
+                  class="tech-hero__input"
+                  type="email"
+                  name="contact[email]"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  placeholder="{{ section.settings.input_placeholder | default: 'your@email.com' }}"
+                  required
+                  {% if form.errors %}
+                    autofocus
+                    aria-invalid="true"
+                    aria-describedby="tech-hero-error-{{ section.id }}"
+                  {% elsif form.posted_successfully? %}
+                    aria-describedby="tech-hero-success-{{ section.id }}"
+                  {% endif %}
+                >
+                <button class="tech-hero__button" type="submit">
+                  {{ section.settings.button_label | default: 'Notify Me' }}
+                </button>
+              </div>
+
+              {%- if form.errors -%}
+                <p id="tech-hero-error-{{ section.id }}" class="tech-hero__message tech-hero__message--error">
+                  {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+                </p>
+              {%- endif -%}
+
+              {%- if form.posted_successfully? -%}
+                <p id="tech-hero-success-{{ section.id }}" class="tech-hero__message tech-hero__message--success">
+                  Thanks for signing up!
+                </p>
+              {%- endif -%}
+            {%- endform -%}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Description — bottom -->
+    {% if section.settings.description != blank %}
+      <div class="tech-hero__description">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+/* ============================================
+   TECH HERO SECTION
+   ============================================ */
+
+/* Pull the section up behind the transparent nav */
+.hero-wrapper.tech-hero-wrapper {
+  --tech-hero-height-offset: 0px;
+}
+
+body:has(> #header-group > .header-section > #header-component[transparent]) .tech-hero-wrapper:first-child {
+  --tech-hero-height-offset: var(--header-group-height, 0px);
+}
+
+.tech-hero {
+  position: relative;
+  width: 100%;
+  height: 750px;
+  margin-top: calc(-1 * var(--tech-hero-height-offset, 0px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ---- Background Media ---- */
+.tech-hero__media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.tech-hero__media img,
+.tech-hero__media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.tech-hero__placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #1a2a35;
+}
+
+/* Desktop/mobile switching */
+.tech-hero__media--mobile {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .tech-hero__media--desktop {
+    display: none;
+  }
+  .tech-hero__media--mobile {
+    display: block;
+  }
+}
+
+/* ---- Overlay ---- */
+.tech-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--tech-hero-overlay-opacity, 0.3));
+  z-index: 2;
+}
+
+/* ---- Bottom gradient for description legibility ---- */
+.tech-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ---- Content ---- */
+.tech-hero__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  height: 750px;
+  width: 100%;
+  padding: calc(var(--tech-hero-height-offset, 0px) + 2.5rem) 2.5rem 2.5rem;
+  color: #EDEAE4;
+  max-width: 700px;
+}
+
+/* ---- Heading ---- */
+.tech-hero__heading {
+  font-family: var(--font-header) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  text-transform: uppercase !important;
+  color: #EDEAE4 !important;
+  margin: 0 !important;
+  line-height: 0.95 !important;
+  text-align: left;
+}
+
+/* ---- Middle (email form area) ---- */
+.tech-hero__middle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+.tech-hero__email-label {
+  font-family: var(--font-body) !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase;
+  color: rgba(237, 234, 228, 0.7);
+  margin: 0 0 0.5em 0;
+  letter-spacing: 0.08em;
+}
+
+/* ---- Email Form ---- */
+.tech-hero__form-wrapper {
+  width: 100%;
+}
+
+.tech-hero__form {
+  width: 100%;
+}
+
+.tech-hero__input-group {
+  display: flex;
+  gap: 0;
+  max-width: 380px;
+}
+
+.tech-hero__input {
+  flex: 1;
+  padding: 13px 16px;
+  border: none;
+  background-color: rgba(237, 234, 228, 0.88) !important;
+  color: #171717;
+  font-family: var(--font-body) !important;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border-radius: 0;
+  outline: none;
+}
+
+.tech-hero__input::placeholder {
+  color: rgba(23, 23, 23, 0.5);
+  text-transform: lowercase;
+}
+
+.tech-hero__input:focus {
+  background-color: #EDEAE4 !important;
+}
+
+.tech-hero__button {
+  padding: 13px 20px;
+  background-color: #171717;
+  color: #EDEAE4;
+  border: none;
+  font-family: var(--font-button) !important;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  border-radius: 0;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+.tech-hero__button:hover {
+  opacity: 0.8;
+}
+
+.tech-hero__message {
+  margin-top: 0.75em;
+  font-family: var(--font-body) !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase;
+}
+
+.tech-hero__message--error {
+  color: #ff8a8a;
+}
+
+.tech-hero__message--success {
+  color: #69db7c;
+}
+
+/* ---- Description ---- */
+.tech-hero__description {
+  font-family: var(--font-body) !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase;
+  color: rgba(237, 234, 228, 0.75);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.tech-hero__description p {
+  margin: 0;
+  font-size: inherit !important;
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE
+   ============================================ */
+@media screen and (max-width: 749px) {
+  /* Section itself is calc(100vh - 60px) — the header is 60px */
+  .tech-hero {
+    height: calc(100vh - 60px);
+  }
+
+  /* Content fills the section height */
+  .tech-hero__content {
+    height: 100%;
+    padding: 1.5rem 1.25rem 2rem;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Heading — merged into one rule, centered, big-first-word */
+  .tech-hero__heading {
+    text-align: center !important;
+    line-height: 1 !important;
+  }
+
+  .tech-hero__heading-first {
+    display: block;
+    font-size: 18vw !important;
+    line-height: 0.9 !important;
+    letter-spacing: -0.02em;
+  }
+
+  .tech-hero__heading-rest {
+    display: block;
+    font-size: inherit !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Email form — full width */
+  .tech-hero__middle {
+    width: 100%;
+  }
+
+  .tech-hero__form-group {
+    width: 100%;
+  }
+
+  .tech-hero__form-wrapper {
+    width: 100%;
+  }
+
+  .tech-hero__form {
+    width: 100%;
+  }
+
+  .tech-hero__input-group {
+    flex-direction: column;
+    gap: 8px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .tech-hero__input,
+  .tech-hero__button {
+    width: 100%;
+    padding: 14px 16px;
+  }
+
+  .tech-hero__description {
+    max-width: 100%;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Tech Hero",
+  "tag": "section",
+  "class": "hero-wrapper tech-hero-wrapper section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Desktop Media"
+    },
+    {
+      "type": "select",
+      "id": "media_type_desktop",
+      "label": "Desktop Media Type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Video" }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Image",
+      "info": "Recommended: 2400×1350px or wider."
+    },
+    {
+      "type": "url",
+      "id": "video_url_desktop",
+      "label": "Desktop Video URL",
+      "info": "Direct URL to an MP4 file. Autoplay, loop, muted."
+    },
+    {
+      "type": "header",
+      "content": "Mobile Media"
+    },
+    {
+      "type": "select",
+      "id": "media_type_mobile",
+      "label": "Mobile Media Type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Video" }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image",
+      "info": "Recommended: 800×1200px. Falls back to desktop image if not set."
+    },
+    {
+      "type": "url",
+      "id": "video_url_mobile",
+      "label": "Mobile Video URL",
+      "info": "Direct URL to an MP4 file. Falls back to desktop video if not set."
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (H2)",
+      "default": "Movement is the Interface"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description (bottom)",
+      "default": "<p>Control your music with a flick of the wrist. Talk to your crew without stopping. Your glove is the controller — your phone stays in your pocket.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Email Form"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_email_form",
+      "label": "Show email signup form",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Label above form",
+      "default": "Be first to ride"
+    },
+    {
+      "type": "text",
+      "id": "input_placeholder",
+      "label": "Input placeholder",
+      "default": "your@email.com"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Notify Me"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay darkness",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tech Hero",
+      "settings": {
+        "heading": "Movement is the Interface",
+        "description": "<p>Control your music with a flick of the wrist. Talk to your crew without stopping. Your glove is the controller — your phone stays in your pocket.</p>",
+        "show_email_form": true,
+        "email_label": "Be first to ride",
+        "button_label": "Notify Me",
+        "input_placeholder": "your@email.com",
+        "overlay_opacity": 30
+      }
+    }
+  ]
+}
+{% endschema %}
