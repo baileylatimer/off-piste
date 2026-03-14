@@ -895,3 +895,7 @@ footer.section-wrapper .section {
 .footer-utilities__group {
   justify-content: center;
 }
+
+.hero {
+  overflow: hidden;
+}
