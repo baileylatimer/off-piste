@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -7,7 +16,7 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>{{ closest.page.title }}<\/h1>",
+            "text": "<h1>{{ closest.page.title }}</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -54,11 +63,11 @@
       "name": "Tech Hero",
       "settings": {
         "media_type_desktop": "video",
-        "video_url_desktop": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/231b3f256ac34e788b756a893d9320b3.mp4",
+        "video_url_desktop": "https://cdn.shopify.com/videos/c/o/v/231b3f256ac34e788b756a893d9320b3.mp4",
         "media_type_mobile": "video",
-        "video_url_mobile": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/7c8ed31da17c47a7b9b0f00ae7fb4159.mp4",
+        "video_url_mobile": "https://cdn.shopify.com/videos/c/o/v/7c8ed31da17c47a7b9b0f00ae7fb4159.mp4",
         "heading": "Movement is the Interface",
-        "description": "<p>Control your music with a flick of the wrist. Talk to your crew without stopping. Your glove is the controller — your phone stays in your pocket.<\/p>",
+        "description": "<p>Control your music with a flick of the wrist. Talk to your crew without stopping. Your glove is the controller — your phone stays in your pocket.</p>",
         "show_email_form": true,
         "email_label": "Be first to ride",
         "input_placeholder": "your@email.com",
@@ -72,8 +81,8 @@
       "name": "Email Collection",
       "settings": {
         "media_type": "image",
-        "image_desktop": "shopify:\/\/shop_images\/email-hero.jpg",
-        "image_mobile": "shopify:\/\/shop_images\/email-hero--mobil.jpg",
+        "image_desktop": "shopify://shop_images/email-hero.jpg",
+        "image_mobile": "shopify://shop_images/email-hero--mobil.jpg",
         "video_url": "",
         "heading": "Audio & Control, Built into Your Gear.",
         "subheading": "Get on the list",
@@ -100,7 +109,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<h1>New arrivals<\/h1>",
+            "text": "<h1>New arrivals</h1>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -127,7 +136,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>Made with care and unconditionally loved by our customers.<\/p>",
+            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -156,7 +165,7 @@
           "disabled": true,
           "settings": {
             "label": "Shop Now",
-            "link": "shopify:\/\/collections\/all",
+            "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
             "foreground_layer": true,
@@ -180,7 +189,7 @@
         "open_in_new_tab": false,
         "media_type_1": "video",
         "video_source_1": "file",
-        "video_file_url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/62cdf4e00efa4eb8a3f9c5a53e64b9fb.mp4",
+        "video_file_url_1": "https://cdn.shopify.com/videos/c/o/v/62cdf4e00efa4eb8a3f9c5a53e64b9fb.mp4",
         "media_type_2": "image",
         "video_source_2": "upload",
         "video_file_url_2": "",
@@ -229,7 +238,7 @@
           "type": "feature_box",
           "settings": {
             "icon_select": "arrows-updown",
-            "title": "Swipe Up\/Down",
+            "title": "Swipe Up/Down",
             "description": "Volume Control"
           }
         },
@@ -238,7 +247,7 @@
           "settings": {
             "icon_select": "double-tap",
             "title": "Double Tap",
-            "description": "Play \/ Pause"
+            "description": "Play / Pause"
           }
         }
       },
@@ -250,11 +259,11 @@
       ],
       "name": "Tech Feature Section",
       "settings": {
-        "overline": "001 \/ MUSIC CONTROLS",
+        "overline": "001 / MUSIC CONTROLS",
         "heading": "Your Ride. Your Soundtrack. Zero Interruptions.",
-        "description": "<p>Gesture recognition built into the glove lets you skip tracks, adjust volume, and pause your music with simple hand movements — without breaking your flow. Swipe, tap, and flick. The mountain is yours.<\/p>",
+        "description": "<p>Gesture recognition built into the glove lets you skip tracks, adjust volume, and pause your music with simple hand movements — without breaking your flow. Swipe, tap, and flick. The mountain is yours.</p>",
         "media_type": "video",
-        "video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/44bcd57d76d54b04a98a5bd8769a636e.mp4",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/44bcd57d76d54b04a98a5bd8769a636e.mp4",
         "invert_columns": false
       }
     },
@@ -284,11 +293,11 @@
       ],
       "name": "Tech Feature Section",
       "settings": {
-        "overline": "002 \/ Voice chat",
-        "heading": "Talk to your crew.\u2028Hands free.",
-        "description": "<p>Send and receive live voice messages to your friends on the mountain. No fumbling for your phone when you get separated. No wrong turns. Tap to  talk, release to send — like a walkie-talkie built into your glove.<\/p>",
+        "overline": "002 / Voice chat",
+        "heading": "Talk to your crew. Hands free.",
+        "description": "<p>Send and receive live voice messages to your friends on the mountain. No fumbling for your phone when you get separated. No wrong turns. Tap to  talk, release to send — like a walkie-talkie built into your glove.</p>",
         "media_type": "image",
-        "image": "shopify:\/\/shop_images\/hf_20260314_043927_e0fac3b0-1c42-44b7-bb89-fe820726ff1c_1.jpg",
+        "image": "shopify://shop_images/hf_20260314_043927_e0fac3b0-1c42-44b7-bb89-fe820726ff1c_1.jpg",
         "video_url": "",
         "invert_columns": true
       }
@@ -300,7 +309,7 @@
           "type": "spec_row",
           "settings": {
             "label": "Connectivity",
-            "value": "Bluetooth 5.3"
+            "value": "Bluetooth low energy"
           }
         },
         "spec_row_2": {
@@ -335,7 +344,7 @@
           "type": "spec_row",
           "settings": {
             "label": "Materials",
-            "value": "Gore-Tex Shell, Primaloft Insulation"
+            "value": "Hard shell case with elastic wristband"
           }
         }
       },
@@ -350,7 +359,7 @@
       "name": "Tech Specs Section",
       "settings": {
         "heading": "Built for the Mountain.",
-        "description": "<p>Every component is engineered for cold weather, wet conditions, and all-day riding. No compromises.<\/p>",
+        "description": "<p>Every component is engineered for cold weather, wet conditions, and all-day riding. No compromises.</p>",
         "invert_columns": true
       }
     },
@@ -374,7 +383,7 @@
           "type": "media_card",
           "settings": {
             "media_type": "image",
-            "image": "shopify:\/\/shop_images\/tech-slides--03.jpg",
+            "image": "shopify://shop_images/tech-slides--03.jpg",
             "video_url": "",
             "heading": "Gesture Controlled",
             "description": "Your glove is the interface. Swipe, tap, ride."
@@ -384,7 +393,7 @@
           "type": "media_card",
           "settings": {
             "media_type": "image",
-            "image": "shopify:\/\/shop_images\/tech-slides--02.jpg",
+            "image": "shopify://shop_images/tech-slides--02.jpg",
             "video_url": "",
             "heading": "Built in Audio Headband",
             "description": "Sits under your helmet. Balanced sound, no bulk."
@@ -394,7 +403,7 @@
           "type": "media_card",
           "settings": {
             "media_type": "image",
-            "image": "shopify:\/\/shop_images\/tech-slides--01.jpg",
+            "image": "shopify://shop_images/tech-slides--01.jpg",
             "video_url": "",
             "heading": "Seamless Pairing",
             "description": "Auto-connect. Low-latency. Cold-tested."
