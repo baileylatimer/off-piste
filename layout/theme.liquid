@@ -4,6 +4,7 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+ {%- render 'ecom_header' -%}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
     {{ 'tailwind.css' | asset_url | stylesheet_tag }}
@@ -82,5 +83,5 @@
     
     {% comment %} Custom JavaScript Bundle with GSAP animations {% endcomment %}
     <script src="{{ 'bundle.js' | asset_url }}" defer></script>
-  </body>
+  {%- render "ecom_footer"-%}</body>
 </html>
