@@ -608,27 +608,27 @@ margin-left: -.24em !important;
         <div {{ layer_attribute }} {{ block.shopify_attributes }}>
           {%- case block.type -%}
             {%- when 'text' -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
             {%- when 'button' -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
             {%- when 'jumbo-text' -%}
               {% render 'jumbo-text' %}
             {%- when '_heading' -%}
               {% render 'text', width: '100%', block: block, fallback_text: text %}
             {%- when 'logo' -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
             {%- when 'spacer' -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
             {%- when 'group' -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
             {%- when '_marquee' -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
             {%- when 'image' -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
             {%- when 'video' -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
             {%- else -%}
-              {% render block.type, block: block %}
+              {% render block, block: block %}
           {%- endcase -%}
         </div>
       {%- endfor -%}
@@ -1208,3 +1208,37 @@ margin-left: -.24em !important;
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 18178..18210
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 18259..18291
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 18536..18568
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 18617..18649
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 18697..18729
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 18780..18812
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 18860..18892
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 18940..18972
+- from: "{% render block.type, block: block %}"
+  to: "{% render block, block: block %}"
+  position: 19012..19044
+{% endcomment %}
